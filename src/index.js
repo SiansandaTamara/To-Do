@@ -2,7 +2,8 @@ import './index.css';
 import List from './todo.js';
 
 const todoList = new List();
-todoList.display();
+
+todoList.resolve.display();
 
 document.querySelector('#form').addEventListener('submit', (e) => {
   e.preventDefault();

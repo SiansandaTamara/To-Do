@@ -1,6 +1,6 @@
 class List {
   constructor() {
-    this.list = JSON.parse(localStorage.getItem("todoList"));
+    this.list = JSON.parse(localStorage.getItem('todoList'));
     if (!this.list) {
       this.list = [];
     }
@@ -9,8 +9,8 @@ class List {
 
   display() {
     this.saveData();
-    const listSection = document.querySelector(".listed-items");
-    listSection.innerHTML = "";
+    const listSection = document.querySelector('.listed-items');
+    listSection.innerHTML = '';
     this.list.forEach((work) => {
       let taskItem = `
          <li class="list-items" id="item-data-${work.index}">`;
@@ -92,7 +92,7 @@ class List {
       if (a.index > b.index) return 1;
       return 0;
     });
-    localStorage.setItem("todoList", JSON.stringify(this.list));
+    localStorage.setItem('todoList', JSON.stringify(this.list));
   }
 
   editActivity(index, description) {
@@ -101,28 +101,28 @@ class List {
   }
 
   activateActions() {
-    const updateStatus = document.querySelectorAll(".update-status");
+    const updateStatus = document.querySelectorAll('.update-status');
     if (updateStatus !== null) {
       updateStatus.forEach((item) => {
-        item.addEventListener("click", () => {
-          this.updateActivityStatus(item.getAttribute("data"));
+        item.addEventListener('click', () => {
+          this.updateActivityStatus(item.getAttribute('data'));
         });
       });
     }
-    const deleteBtns = document.querySelectorAll(".delete-work");
+    const deleteBtns = document.querySelectorAll('.delete-work');
     if (deleteBtns) {
       deleteBtns.forEach((work) => {
-        work.addEventListener("click", () => {
-          this.deleteWork(work.getAttribute("data"));
+        work.addEventListener('click', () => {
+          this.deleteWork(work.getAttribute('data'));
         });
       });
     }
-    const activities = document.querySelectorAll(".work");
+    const activities = document.querySelectorAll('.work');
     if (activities) {
       activities.forEach((work) => {
-        work.addEventListener("input", (e) => {
+        work.addEventListener('input', (e) => {
           const description = e.target.innerText;
-          const index = e.target.getAttribute("data");
+          const index = e.target.getAttribute('data');
           this.editActivity(index, description);
         });
       });

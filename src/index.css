@@ -108,3 +108,68 @@
     font-size: 15px;
   }
   
+  .update-status {
+    color: #9797a5;
+    font-size: 23px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  
+  .return {
+    transition: 0.6s;
+    color: #9797a5;
+    background-color: #fff;
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  
+  .listed-items {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .list-items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 10px 10px 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  
+  .done {
+    color: rgb(25, 185, 65);
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    color: #9797a5;
+    font-size: large;
+  }
+  
+  .more-bars {
+    padding-right: 7px;
+    color: #9797a5;
+    font-size: 18px;
+    cursor: move;
+  }
+  
+  .complete-items {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    padding: 20px 6px;
+    color: #545862;
+    justify-content: center;
+  }
+  
+  .complete-items:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  

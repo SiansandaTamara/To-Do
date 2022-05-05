@@ -621,5 +621,9 @@
     "yargs-parser": "^20.2.9",
     "yauzl": "^2.10.0",
     "zwitch": "^1.0.5"
+  },
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "test"
   }
 }

@@ -1,133 +1,78 @@
-class List {
+import createStore, {
+  TOGGLE,
+  LOAD_TODOS,
+  SWAP_TODOS,
+  ADD_TODO,
+  EDIT_TODO,
+  DELETE_TODO,
+  CLEAR_COMPLETED,
+} from './store.js';
+
+class TodoStore {
   constructor() {
-    this.list = JSON.parse(localStorage.getItem('todoList'));
-    if (!this.list) {
-      this.list = [];
-    }
-    this.display();
+    this.store = createStore();
   }
 
-  display() {
-    this.saveData();
-    const listSection = document.querySelector('.listed-items');
-    listSection.innerHTML = '';
-    this.list.forEach((work) => {
-      let taskItem = `
-         <li class="list-items" id="item-data-${work.index}">`;
-      if (work.completed) {
-        taskItem += `
-                <span class="material-icons done update-status" data="${work.index}">
-                  done
-                </span>
-                <p contenteditable="true" class="completed work" data="${work.index}">
-                  ${work.description}
-                </p>
-                `;
-      } else {
-        taskItem += `
-                <span class="material-icons  update-status"  data="${work.index}">
-                  check_box_outline_blank
-                </span>
-                <p contenteditable="true" class="work" data="${work.index}">
-                  ${work.description}
-                </p>`;
-      }
-      taskItem += `
-              <span class="material-icons delete-work" data="${work.index}">
-                delete
-              </span>
-            </li>
-          `;
-      listSection.innerHTML += taskItem;
+  get todos() {
+    return this.store.getState();
+  }
+
+  toggleTodo(index) {
+    this.store.dispatch({
+      type: TOGGLE,
+      index,
     });
-    this.activateActions();
   }
 
-  addWork(work) {
-    if (work || work === 0) {
-      const newWork = {
-        description: work,
-        completed: false,
-        index: this.list.length,
-      };
-      this.list.push(newWork);
-      this.display();
-    }
-  }
-
-  updateActivityStatus(workIndex) {
-    if (workIndex !== undefined) {
-      if (this.list[workIndex].completed === true) {
-        this.list[workIndex].completed = false;
-      } else {
-        this.list[workIndex].completed = true;
-      }
-    }
-    this.display();
-  }
-
-  deleteWork(workIndex) {
-    if (workIndex) {
-      this.list.splice(workIndex, 1);
-      this.display();
-    }
-  }
-
-  clearCompletedActivity() {
-    this.list = this.list.filter((work) => work.completed === false);
-    this.display();
-  }
-
-  clearAll() {
-    this.list.splice(0);
-    this.display();
-  }
-
-  saveData() {
-    for (let i; i < this.list.length; i += 1) {
-      this.list[i].index = i;
-    }
-    this.list.sort((a, b) => {
-      if (a.index < b.index) return -1;
-      if (a.index > b.index) return 1;
-      return 0;
+  loadTodos(items) {
+    this.store.dispatch({
+      type: LOAD_TODOS,
+      items,
     });
-    localStorage.setItem('todoList', JSON.stringify(this.list));
   }
 
-  editActivity(index, description) {
-    this.list[index].description = description;
-    this.saveData();
+  swapTodos(source, dest) {
+    this.store.dispatch({
+      type: SWAP_TODOS,
+      source,
+      dest,
+    });
   }
 
-  activateActions() {
-    const updateStatus = document.querySelectorAll('.update-status');
-    if (updateStatus !== null) {
-      updateStatus.forEach((item) => {
-        item.addEventListener('click', () => {
-          this.updateActivityStatus(item.getAttribute('data'));
-        });
-      });
-    }
-    const deleteBtns = document.querySelectorAll('.delete-work');
-    if (deleteBtns) {
-      deleteBtns.forEach((work) => {
-        work.addEventListener('click', () => {
-          this.deleteWork(work.getAttribute('data'));
-        });
-      });
-    }
-    const activities = document.querySelectorAll('.work');
-    if (activities) {
-      activities.forEach((work) => {
-        work.addEventListener('input', (e) => {
-          const description = e.target.innerText;
-          const index = e.target.getAttribute('data');
-          this.editActivity(index, description);
-        });
-      });
-    }
+  addTodo(text) {
+    this.store.dispatch({
+      type: ADD_TODO,
+      text,
+    });
+  }
+
+  editTodo(index, text) {
+    this.store.dispatch({
+      type: EDIT_TODO,
+      index,
+      text,
+    });
+  }
+
+  deleteTodo(index) {
+    this.store.dispatch({
+      type: DELETE_TODO,
+      index,
+    });
+  }
+
+  clearCompleted() {
+    this.store.dispatch({
+      type: CLEAR_COMPLETED,
+    });
+  }
+
+  onUpdate(callback) {
+    this.store.subscribe(callback);
   }
 }
 
-export default List;
+export const Store = TodoStore;
+
+const store = new TodoStore();
+export default store;

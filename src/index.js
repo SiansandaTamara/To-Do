@@ -1,20 +1,28 @@
-import './index.css';
-import List from './todo.js';
+import renderItems from './components.js';
+import store from './todo-store.js';
+import './style.css';
 
-const todoList = new List();
-
-todoList.resolve.display();
-
-document.querySelector('#form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const activity = e.target.elements.activity.value;
-  todoList.addWork(activity);
-  e.target.reset();
-});
-document.querySelector('.complete-items').addEventListener('click', () => {
-  todoList.clearCompletedActivity();
+const form = document.getElementById('add-todo');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const description = form.elements[0].value;
+  store.addTodo(description);
+  form.elements[0].value = '';
 });
 
-document.querySelector('#delete-all').addEventListener('click', () => {
-  todoList.clearAll();
+window.addEventListener('load', () => {
+  document.getElementById('clear-btn').addEventListener('click', () => {
+    store.clearCompleted();
+  });
+
+  const STORE_KEY = 'localstorage/todos';
+
+  store.onUpdate(() => {
+    renderItems(store.todos);
+  });
+  store.onUpdate(() => {
+    localStorage.setItem(STORE_KEY, JSON.stringify(store.todos));
+  });
+  const saved = localStorage.getItem(STORE_KEY);
+  store.loadTodos(saved ? JSON.parse(saved) : []);
 });

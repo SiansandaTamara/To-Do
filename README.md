@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-> This a group work project testing basic Javascript skills.
+> This a personal project testing basic Javascript skills.
 
 # WORKFLOW SCREENSHOT
 ![screenshot]()

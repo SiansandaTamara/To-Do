@@ -2,10 +2,12 @@
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-> This a personal project testing basic Javascript skills.
+> This a personal project made using java script and webpack
 
 # WORKFLOW SCREENSHOT
-![image](https://user-images.githubusercontent.com/97942433/167153288-602e581e-fbb2-4c1c-8a8b-ff443fbd86a5.png)
+
+![screenshot](Screenshot 2022-05-06 161324.png)
+
 
 ## Built With
 - HTML
@@ -29,10 +31,9 @@ To get a local copy up and running follow these simple example steps.
 
 ```bash
 git clone//https://github.com/SiansandaTamara/To-Do
-cd list
+cd interactive
+
 ```
-
-
 
 ## Authors
 👤 **Tamara Siansanda**
@@ -59,6 +60,3 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](https://github.com/SiansandaTamara/To-Do/blob/main/LICENSE ) licensed.
-
-This project is [MIT](https://github.com/SiansandaTamara/
-

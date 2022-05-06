@@ -5,7 +5,9 @@
 > This a personal project made using java script and webpack
 
 # WORKFLOW SCREENSHOT
+
 ![screenshot](Screenshot 2022-05-06 161324.png)
+
 
 ## Built With
 - HTML
@@ -30,9 +32,8 @@ To get a local copy up and running follow these simple example steps.
 ```bash
 git clone//https://github.com/SiansandaTamara/To-Do
 cd interactive
+
 ```
-
-
 
 ## Authors
 👤 **Tamara Siansanda**

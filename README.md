@@ -5,7 +5,7 @@
 > This a personal project testing basic Javascript skills.
 
 # WORKFLOW SCREENSHOT
-![screenshot]()
+![image](https://user-images.githubusercontent.com/97942433/167153288-602e581e-fbb2-4c1c-8a8b-ff443fbd86a5.png)
 
 ## Built With
 - HTML
@@ -13,7 +13,7 @@
 - JavaScript
 ## Live Demo (if available)
 
-[Live Demo Link]
+[Live Demo Link](https://siansandatamara.github.io/To-Do/)
 
 ## Getting Started
 
@@ -28,7 +28,9 @@ To get a local copy up and running follow these simple example steps.
 ### Setup
 
 ```bash
-git clone// https://github.com/SiansandaTamara
+git clone//https://github.com/SiansandaTamara/To-Do
+cd list
+```
 
 
 
@@ -56,4 +58,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is (./MIT.mdgit ) licensed.
+This project is [MIT](https://github.com/SiansandaTamara/To-Do/blob/main/LICENSE ) licensed.

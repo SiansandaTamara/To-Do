@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "main": "webpack.config.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
     "test": "jest",
-    "build": "webpack",
     "start": "webpack serve --open",
-    "watch": "webpack --watch"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -24,9 +26,13 @@
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-typescript": "^7.16.7",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^28.1.0",
     "css": "^3.0.0",
     "css-loader": "^6.7.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.26.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.0",
     "sass-loader": "^12.6.0",
@@ -35,7 +41,7 @@
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.21.0",
-    "webpack": "^5.72.0",
+    "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"
   }

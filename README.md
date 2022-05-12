@@ -15,7 +15,7 @@
 - JavaScript
 ## Live Demo (if available)
 
-[Live Demo Link](https://siansandatamara.github.io/To-Do/)
+[Live Demo Link](https://siansandatamara.github.io/To-Do/dist)
 
 ## Getting Started
 
